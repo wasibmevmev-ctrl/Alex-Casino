@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Casino Practice Suite (Virtual Coins)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>🎲 Casino Practice — DEMO (Virtual Coins)</h1>
+    <div class="balance">Balance: <span id="balance">0</span> 🪙</div>
+  </header>
+
+  <nav id="tabs">
+    <button data-tab="slots" class="active">🎰 Slots</button>
+    <button data-tab="roulette">🎡 Roulette</button>
+    <button data-tab="blackjack">🃏 Blackjack</button>
+    <button data-tab="color">🎨 Color Trading</button>
+    <button id="btnAddCoins" class="right">+ Add 1,000</button>
+    <button id="btnReset" class="right">↺ Reset</button>
+  </nav>
+
+  <main>
+    <section id="tab-slots" class="tab active">
+      <h2>🎰 Slots (3×3)</h2>
+      <div class="row">
+        <label>Bet:</label>
+        <input id="slotsBet" type="number" min="10" step="10" value="50">
+        <button id="slotsSpin">SPIN</button>
+      </div>
+      <div id="slotsReels" class="reels">
+        <div class="reel">🍒</div>
+        <div class="reel">🍀</div>
+        <div class="reel">💎</div>
+      </div>
+      <div class="payouts">
+        Payouts (middle row only): 🍒×3 = 5×, 🍋×3 = 4×, 🍀×3 = 7×, ⭐×3 = 10×, 🔔×3 = 12×, 💎×3 = 20×
+      </div>
+      <div id="slotsMsg" class="msg"></div>
+    </section>
+
+    <section id="tab-roulette" class="tab">
+      <h2>🎡 Roulette (European, single zero)</h2>
+      <div class="row">
+        <label>Bet:</label>
+        <input id="roulBet" type="number" min="10" step="10" value="50">
+        <select id="roulChoice">
+          <option value="red">Red (2×)</option>
+          <option value="black">Black (2×)</option>
+          <option value="green">Green 0 (14×)</option>
+        </select>
+        <button id="roulSpin">SPIN</button>
+      </div>
+      <div class="wheel">Spin result: <span id="roulResult">-</span></div>
+      <div class="hint">Demo-only: 18 Red, 18 Black, 1 Green (0). Virtual coins only.</div>
+      <div id="roulMsg" class="msg"></div>
+    </section>
+
+    <section id="tab-blackjack" class="tab">
+      <h2>🃏 Blackjack (Dealer stands on 17)</h2>
+      <div class="row">
+        <label>Bet:</label>
+        <input id="bjBet" type="number" min="10" step="10" value="50">
+        <button id="bjDeal">Deal</button>
+        <button id="bjHit" disabled>Hit</button>
+        <button id="bjStand" disabled>Stand</button>
+      </div>
+      <div class="cardsWrap">
+        <div><strong>Dealer:</strong> <span id="bjDealer"></span> <span id="bjDealerScore"></span></div>
+        <div><strong>You:</strong> <span id="bjPlayer"></span> <span id="bjPlayerScore"></span></div>
+      </div>
+      <div id="bjMsg" class="msg"></div>
+    </section>
+
+    <section id="tab-color" class="tab">
+      <h2>🎨 Color Trading (Practice)</h2>
+      <div class="row">
+        <label>Bet:</label>
+        <input id="ctBet" type="number" min="10" step="10" value="50">
+        <select id="ctChoice">
+          <option value="red">Red (2×)</option>
+          <option value="green">Green (2×)</option>
+          <option value="blue">Blue (3×, rarer)</option>
+        </select>
+        <button id="ctGo">Predict</button>
+      </div>
+      <div class="wheel">Result: <span id="ctResult">-</span></div>
+      <div class="hint">Probabilities: Red 45%, Green 45%, Blue 10%. Payouts: 2×/2×/3×. Demo-only.</div>
+      <div id="ctMsg" class="msg"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p><strong>Note:</strong> Ye app <u>demo/practice</u> ke liye hai — sirf virtual coins. Real-money gambling nahi.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
